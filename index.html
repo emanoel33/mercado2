@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Navegação</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Barra de Navegação -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo da página -->
+    <section id="home">
+        <h1>Bem-vindo ao nosso site</h1>
+        <p>Esta é a seção inicial.</p>
+    </section>
+
+    <section id="sobre">
+        <h1>Sobre</h1>
+        <p>Informações sobre a empresa.</p>
+    </section>
+
+    <section id="servicos">
+        <h1>Serviços</h1>
+        <p>Os serviços que oferecemos.</p>
+    </section>
+
+    <section id="contato">
+        <h1>Contato</h1>
+        <p>Como entrar em contato conosco.</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cor Rosa com JavaScript</title>
+</head>
+<body>
+
+    <h1>Exemplo de Cor Rosa</h1>
+    <p>O fundo desta página foi alterado para a cor rosa.</p>
+
+    <script>
+        // Alterar a cor de fundo para rosa
+        document.body.style.backgroundColor = "#FFC0CB"; // Cor rosa em hexadecimal
+    </script>
+    
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Produto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+
+    <ul id="produtos-lista">
+        <li id="produto1">
+            Produto A
+            <button onclick="deletarProduto('produto1')">Deletar</button>
+        </li>
+        <li id="produto2">
+            Produto B
+            <button onclick="deletarProduto('produto2')">Deletar</button>
+        </li>
+        <li id="produto3">
+            Produto C
+            <button onclick="deletarProduto('produto3')">Deletar</button>
+        </li>
+    </ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro de Usuário</h2>
+        <form id="formCadastro">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <div id="mensagem"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando JSON Server</title>
+</head>
+<body>
+    <h1>Usuários</h1>
+    <ul id="usuarios-lista"></ul>
+
+    <script>
+        // Função para obter os usuários do servidor JSON
+        function getUsuarios() {
+            fetch('http://localhost:3000/usuarios')
+                .then(response => response.json())
+                .then(data => {
+                    // Exibir os usuários na tela
+                    const lista = document.getElementById('usuarios-lista');
+                    data.forEach(usuario => {
+                        const li = document.createElement('li');
+                        li.textContent = `${usuario.nome} - ${usuario.email}`;
+                        lista.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar os usuários:', error));
+        }
+
+        // Chama a função para obter os usuários assim que a página carrega
+        window.onload = getUsuarios;
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Autenticado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Login</h1>
+    
+    <!-- Formulário de login -->
+    <form id="loginForm" onsubmit="return login()">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" required />
+        
+        <label for="password">Senha:</label>
+        <input type="password" id="password" required />
+        
+        <button type="submit">Entrar</button>
+    </form>
+
+    <script src="login.js"></script>
+</body>
+</html>
